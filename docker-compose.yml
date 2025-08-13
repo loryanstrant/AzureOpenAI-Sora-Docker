@@ -1,0 +1,18 @@
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8090:8090"
+    environment:
+      - AZURE_OPENAI_ENDPOINT=${AZURE_OPENAI_ENDPOINT:-}
+      - AZURE_OPENAI_API_KEY=${AZURE_OPENAI_API_KEY:-}
+      - AZURE_OPENAI_API_VERSION=${AZURE_OPENAI_API_VERSION:-preview}
+      - AZURE_OPENAI_DEPLOYMENT=${AZURE_OPENAI_DEPLOYMENT:-sora}
+      - AZURE_USE_MANAGED_IDENTITY=${AZURE_USE_MANAGED_IDENTITY:-false}
+      - BASE_URL=http://backend:8090
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:80"
+    environment:
+      - VITE_API_BASE_URL=http://localhost:8090
