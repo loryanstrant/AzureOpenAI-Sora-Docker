@@ -10,7 +10,7 @@ Create short videos with a modern web UI powered by a FastAPI backend and a Reac
 - Async server with streaming download for large files
 - Azure Managed Identity support for production; API key for local/dev
 - Health checks and structured request/error logging
-- Container-ready (Dockerfiles + docker-compose)
+- Container-ready with pre-built images hosted on GitHub Container Registry (GHCR)
 
 ## 🖼️ UI Preview
 
@@ -25,14 +25,23 @@ Create short videos with a modern web UI powered by a FastAPI backend and a Reac
 
 ## 🚀 Quick Start
 
-### Option A: Run with Docker
+### Option A: Run with Docker (using pre-built images)
 
 1) Copy/prepare environment variables (see Configuration below). For Docker, you can export them into your shell or a `.env` file at the repo root.
-2) Build and start:
+2) Pull images and start:
 
 ```powershell
-docker compose up --build
+docker compose pull
+docker compose up
 ```
+
+Or simply:
+
+```powershell
+docker compose up
+```
+
+Docker will automatically pull the latest pre-built images from GitHub Container Registry (GHCR) if they're not available locally.
 
 Frontend starts on http://localhost:5173 and backend on http://localhost:8090.
 
@@ -94,6 +103,15 @@ frontend/  React + Vite + TS single page app
 docs/      UI screenshots used in this README
 docker-compose.yml  Local orchestration (frontend + backend)
 ```
+
+## 🐳 Pre-built Docker Images
+
+This project provides pre-built Docker images hosted on GitHub Container Registry (GHCR) for easy deployment:
+
+- **Backend**: `ghcr.io/loryanstrant/azureopenai-sora-docker-backend:latest`
+- **Frontend**: `ghcr.io/loryanstrant/azureopenai-sora-docker-frontend:latest`
+
+Images are automatically built and published from the `main` branch. No local building required!
 
 ## 🧪 Tests
 

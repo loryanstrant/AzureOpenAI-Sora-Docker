@@ -1,6 +1,6 @@
 services:
   backend:
-    build: ./backend
+    image: ghcr.io/loryanstrant/azureopenai-sora-docker-backend:latest
     ports:
       - "8090:8090"
     environment:
@@ -11,7 +11,7 @@ services:
       - AZURE_USE_MANAGED_IDENTITY=${AZURE_USE_MANAGED_IDENTITY:-false}
       - BASE_URL=http://backend:8090
   frontend:
-    build: ./frontend
+    image: ghcr.io/loryanstrant/azureopenai-sora-docker-frontend:latest
     ports:
       - "5173:80"
     environment:
