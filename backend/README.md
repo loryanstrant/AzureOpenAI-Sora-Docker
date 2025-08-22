@@ -1,6 +1,8 @@
 Sora Backend (FastAPI)
 
-Setup
+For Docker users: This backend is available as a pre-built image at `ghcr.io/loryanstrant/azureopenai-sora-docker-backend:latest`. See the main README for Docker setup instructions.
+
+Local Development Setup
 1) Install Poetry then run:
    poetry install
 
